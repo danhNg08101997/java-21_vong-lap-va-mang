@@ -6,7 +6,7 @@ public class DemSo {
     }
     private static void soChiaHetCho3() {
         int dem = 0;
-        for (int i = 0; i <= 100; i++){
+        for (int i = 0; i <= 10; i++){
             if(i % 3 == 0) {
                 dem++;
             }
