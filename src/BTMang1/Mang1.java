@@ -57,29 +57,41 @@ public class Mang1 {
     public static void xuLyLuaChon(int[] arr, int soChon) {
         switch (soChon) {
             case 1:
+                // Tính tổng số dương
                 tongSoDuong(arr);
                 break;
             case 2:
+                // Tính tổng số lẻ
                 tongSoLe(arr);
                 break;
+                // Đếm số dương trong mảng
             case 3:
                 demSoDuong(arr);
                 break;
+                // Tìm số nhỏ nhất trong mảng
             case 4:
                 soNhoNhat(arr);
                 break;
+                // Tìm số dương nhỏ nhất trong mảng
             case 5:
                 soDuongNhoNhat(arr);
                 break;
+            // Số chẵn cuối cùng trong mảng
             case 6:
+                soChanCuoiCung(arr);
                 break;
+            // Số chẵn đầu tiên trong mảng
             case 7:
+                soChanDauTien(arr);
                 break;
             case 8:
+                System.out.println("Chưa cập nhật");
                 break;
             case 9:
+                System.out.println("Chưa cập nhật");
                 break;
             case 10:
+                System.out.println("Chưa cập nhật");
                 break;
             default: System.exit(0);
         }
@@ -95,8 +107,9 @@ public class Mang1 {
             }
         }
         // Output
-        System.out.printf("Tổng các số dương là: %d", tongDuong);
+        System.out.printf("Tổng các số dương là: %d\n", tongDuong);
     }
+
     // Tính tổng các số lẻ
     public static void tongSoLe(int[] arr) {
         // Input
@@ -108,9 +121,10 @@ public class Mang1 {
             }
         }
         // Output
-        System.out.printf("Tổng các số lẻ: %d", tongSoLe);
+        System.out.printf("Tổng các số lẻ: %d\n", tongSoLe);
 
     }
+
     // Đếm số dương trong mảng
     public static void demSoDuong(int[] arr) {
         // Input
@@ -122,8 +136,9 @@ public class Mang1 {
             }
         }
         // Output
-        System.out.printf("Có %d số dương trong mảng.", dem);
+        System.out.printf("Có %d số dương trong mảng.\n", dem);
     }
+
     // Số nhỏ nhất trong mảng
     public static void soNhoNhat(int[] arr) {
         //Input
@@ -135,24 +150,70 @@ public class Mang1 {
             }
         }
         // Output
-        System.out.printf("Số nhỏ nhất trong mảng là: %d", temp);
+        System.out.printf("Số nhỏ nhất trong mảng là: %d\n", temp);
     }
+
     // Số dương nhỏ nhất trong mảng
     public static void soDuongNhoNhat(int[] arr) {
         // Input
-        int temp = arr[0];
+        // Cách 1 int temp = arr[0];
+        int temp = Integer.MAX_VALUE;
        // Process
         for (int i = 0; i < arr.length; i++) {
-            if (temp < 0) {
-                temp = arr[i + 1];
-            }
-            if (temp > 0) {
-                if (temp > arr[i]) {
-                    temp = arr[i];
-                }
+// -----------Cách 1
+//            if (temp < 0) {
+//                temp = arr[i + 1];
+//            }
+//            if (temp > 0) {
+//                if (temp > arr[i]) {
+//                    temp = arr[i];
+//                }
+// -----------Cách 1
+            if (arr[i] > 0 && arr[i] < temp) {
+                temp = arr[i];
             }
         }
         // Output
-        System.out.printf("Số nhỏ nhất trong mảng là: %d", temp);
+        System.out.printf("Số dương nhỏ nhất trong mảng là: %d\n", temp);
+    }
+
+    // Số chẵn cuối cùng trong mảng
+    public static void soChanCuoiCung(int[] arr) {
+        // Input
+        int viTri = -1, ketQua;
+        // Process
+        for(int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] % 2 == 0) {
+                viTri = i;
+                break;
+            }
+        }
+        // Output
+        if (viTri == -1) {
+            System.out.println("Không thấy số chẵn nào trong mảng");
+        } else {
+            ketQua = arr[viTri];
+            System.out.printf("Số chẵn cuối cùng trong mảng: %d - vị trí: %d\n", ketQua, viTri);
+        }
+    }
+
+    // Số chẵn đầu tiên trong mảng
+    public static void soChanDauTien(int[] arr) {
+        // Input
+        int viTri = -1, ketQua;
+        // Process
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                viTri = i;
+                break;
+            }
+        }
+        // Output
+        if (viTri == -1) {
+            System.out.println("Không thấy số chẵn nào trong mảng");
+        } else {
+            ketQua = arr[viTri];
+            System.out.printf("Số chẵn đầu tiên trong mảng: %d - vị trí: %d\n", ketQua, viTri);
+        }
     }
 }
